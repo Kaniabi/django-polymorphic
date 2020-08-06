@@ -1,7 +1,14 @@
 Changelog
 =========
 
-Changes in 2.1.2 (2019-17-15)
+Changes in 3.0.0 (2020-08-06)
+-----------------------------
+
+* Add support for Django 3.1
+* Drop support for Python < 3.5 and Django < 2.1
+
+
+Changes in 2.1.2 (2019-07-15)
 -----------------------------
 
 * Fix ``PolymorphicInlineModelAdmin`` media jQuery include for Django 2.0+
