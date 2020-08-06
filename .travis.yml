@@ -11,13 +11,11 @@ addons:
 matrix:
   fast_finish: true
   include:
-    # Django 2.1: Python 3.5, 3.6, or 3.7
-    - { env: TOXENV=py35-django21, python: 3.5 }
+    # Django 2.1: Python 3.6, or 3.7
     - { env: TOXENV=py36-django21, python: 3.6 }
     - { env: TOXENV=py37-django21, python: 3.7 }
     - { env: TOXENV=py37-django21-postgres DB=postgres, python: 3.7 }
-    # Django 2.2: Python 3.5, 3.6, 3.7 or 3.8
-    - { env: TOXENV=py35-django22, python: 3.5 }
+    # Django 2.2: Python 3.6, 3.7 or 3.8
     - { env: TOXENV=py36-django22, python: 3.6 }
     - { env: TOXENV=py37-django22, python: 3.7 }
     - { env: TOXENV=py38-django22, python: 3.8 }

@@ -179,6 +179,9 @@ class PolymorphicQuerySet(QuerySet):
             else a  # allow expressions to pass unchanged
             for a in field_names
         ]
+        print("*" * 80)
+        print('PolymorphicQuerySet.order_by field_names:', field_names)
+        print("*" * 80)
         return super(PolymorphicQuerySet, self).order_by(*field_names)
 
     def defer(self, *fields):
