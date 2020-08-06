@@ -2,9 +2,10 @@
 import uuid
 
 import django
-from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.db.models.query import QuerySet
+from django.contrib.contenttypes.models import ContentType
+from django.core.exceptions import FieldDoesNotExist
 
 from polymorphic.managers import PolymorphicManager
 from polymorphic.models import PolymorphicModel
@@ -165,7 +166,14 @@ class MyManager(PolymorphicManager):
     queryset_class = MyManagerQuerySet
 
     def get_queryset(self):
-        return super(MyManager, self).get_queryset().order_by("-field1")
+        result = super(MyManager, self).get_queryset()
+        try:
+            self.model._meta.get_field("field1")
+        except FieldDoesNotExist:
+            pass
+        else:
+            result.order_by("-field1")
+        return result
 
     def my_queryset_foo(self):
         return self.all().my_queryset_foo()

@@ -1,6 +1,6 @@
 from django.contrib.contenttypes.models import ContentType
 from django.db.models import Q
-from django.test import TestCase
+from django.test import TestCase, TransactionTestCase
 
 from polymorphic.tests.models import (
     Base,
@@ -17,7 +17,7 @@ from polymorphic.tests.models import (
 )
 
 
-class MultipleDatabasesTests(TestCase):
+class MultipleDatabasesTests(TransactionTestCase):
     multi_db = True
 
     def test_save_to_non_default_database(self):
